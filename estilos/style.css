@@ -6,17 +6,9 @@
     list-style: none;
 }
 
-html{
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    background-color: black;
-}
-
-main {
-    background: url('../imagens/fundo.gif') repeat;  
-    background-attachment: fixed;
-    position: relative;
+body main{
+    background: url('../imagens/fundo.gif') repeat;
+    position: relative;  
 }
 
 .container {
@@ -25,21 +17,28 @@ main {
     grid-gap: 5px;
     margin: 0 auto;
     padding: 20px;
+    position: relative;
 }
 
 .container .telefone { /*Tela do telefone branco*/
-    display: block;
+    display: flex;
     margin: 0 auto;
     align-items: center;
     justify-content: center;
-    height: 628px;
+    height:628px;
     width: 311px;
     background: url(../imagens/frame-iphone.png) no-repeat;
-       
+    position: relative;       
 }
 
-iframe#tela { /*tamanho da caixa do video com width e height. Ajuste do video com top e left*/
-    position: relative;
+.container .telefone iframe {
+    position: absolute;
+    width: 450px;
+    height: 4970px;
+}
+
+iframe#tela { /*tamanho da caixa do video com width e height. Ajuste do video com top e left*/   
+    position: absolute;
     top: 78px;
     left: 21px;
     width: 266px;
@@ -49,19 +48,18 @@ iframe#tela { /*tamanho da caixa do video com width e height. Ajuste do video co
 .sidebar {
     display: grid;
     margin-bottom: auto;
-    margin-right: 5px;    
+    margin-right: 5px;
 }
 
 .sidebar > div {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .sidebar img {
     width: 50px;
-    display: grid;
     border-radius: 50%;
     border: 3px solid rgba(255, 255, 255, 0.733);    
-    box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.76);    
+    box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.76);
 }
 
 .sidebar img:hover {
@@ -92,16 +90,23 @@ footer a:hover {
 
 
 @media (max-width:500px){
+   
+    body {
+        position: absolute;
+    }
     .container {
         grid-template-columns: 1fr;
     }
-    .sidebar {
+    .container .sidebar {
         display: flex;
+        margin-bottom: auto;
+        margin-right: 5px;
     }
-    .sidebar > div {
+    .container .sidebar > div {
         flex: 1 0 50px; /* 1= expandir, 0= não diminui tamanho, 200px= é a base do tamanho*/
         margin: 0 10px;
     }
+    
     .video-container {
         display: block;
         grid-column: auto;
